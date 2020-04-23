@@ -14,25 +14,47 @@ public class BookService {
     @Autowired
     private BookRepository bookRepository;
 
-    public List getAllBooks() {
-        List books = new ArrayList<>();
+    /**
+     * Method to fetch all the books
+     * @return books
+     */
+    public List<Book> getAllBooks() {
+        List<Book> books = new ArrayList<Book>();
         bookRepository.findAll().forEach(books::add);
         return books;
     }
 
-    public Book getBook(String id) {
-        return (Book) bookRepository.findById(id).orElseGet(Book::new);
+    /**
+     * Method to fetch the book based on id
+     * @param id
+     * @return
+     */
+    public Book getBook(int id) {
+        return bookRepository.findById(id).orElseGet(Book::new);
     }
 
-    public void addBook(Book whiskey) {
-        bookRepository.save(whiskey);
+    /**
+     * Method to add the book
+     * @param book
+     */
+    public void addBook(Book book) {
+        bookRepository.save(book);
     }
 
-    public void updateBook(String id, Book oracle) {
-        bookRepository.save(oracle);
+    /**
+     * Method to update the book information based on id
+     * @param id
+     * @param book
+     */
+    public void updateBook(int id, Book book) {
+        bookRepository.save(book);
     }
 
-    public void deleteBook(String id) {
+    /**
+     * Method to delete the book record based on id
+     * @param id
+     */
+    public void deleteBook(int id) {
         bookRepository.deleteById(id);
     }
 }
