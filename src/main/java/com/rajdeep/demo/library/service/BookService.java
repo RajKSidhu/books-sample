@@ -26,16 +26,15 @@ public class BookService {
 
     /**
      * Method to fetch the book based on id
-     * @param id
-     * @return
+     * @param id id
      */
     public Book getBook(int id) {
-        return bookRepository.findById(id).orElseGet(Book::new);
+        return bookRepository.findById(id).get();
     }
 
     /**
      * Method to add the book
-     * @param book
+     * @param book book
      */
     public void addBook(Book book) {
         bookRepository.save(book);
@@ -43,8 +42,8 @@ public class BookService {
 
     /**
      * Method to update the book information based on id
-     * @param id
-     * @param book
+     * @param id id
+     * @param book book
      */
     public void updateBook(int id, Book book) {
         bookRepository.save(book);
@@ -52,7 +51,7 @@ public class BookService {
 
     /**
      * Method to delete the book record based on id
-     * @param id
+     * @param id id
      */
     public void deleteBook(int id) {
         bookRepository.deleteById(id);
