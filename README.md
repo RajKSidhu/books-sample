@@ -3,14 +3,14 @@
 
 Java application illustrating the CRUD operations for the Books for a Library.
 
-##Requirements
+## Requirements
 Used Dependencies for Spring Web, Spring Data JPA and H2 Database. 
 
 The requirement of this application is Maven. All other dependencies can be installed by building the maven package.
 
 mvn package
 
-#Development
+## Development
 
 * Clone the Git Repository using the command.
 

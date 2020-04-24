@@ -7,7 +7,7 @@ import javax.persistence.Id;
 public class Book {
 
     @Id
-    private int id;
+    private Long id;
 
     private String title;
     private String author;
@@ -19,7 +19,7 @@ public class Book {
     public Book(){
     }
 
-    public Book(int id, String title, String author, String type, double price, int numOfPages, String language) {
+    public Book(Long id, String title, String author, String type, double price, int numOfPages, String language) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -29,11 +29,11 @@ public class Book {
         this.language = language;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

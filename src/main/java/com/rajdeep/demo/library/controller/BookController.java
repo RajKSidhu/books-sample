@@ -1,11 +1,12 @@
 package com.rajdeep.demo.library.controller;
 
+import com.rajdeep.demo.library.exception.BookNotFoundException;
 import com.rajdeep.demo.library.model.Book;
 import com.rajdeep.demo.library.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -21,26 +22,22 @@ public class BookController{
     }
 
     @GetMapping("/book/{id}")
-    public Book getBook(@PathVariable("id") int bookId){
+    public Book getBook(@PathVariable("id") Long bookId) throws BookNotFoundException{
         return bookService.getBook(bookId);
     }
 
     @PostMapping("/book")
-    public int addBook(@RequestBody Book book) {
-        bookService.addBook(book);
-        ResponseEntity.ok().build();
-        return book.getId();
+    public Book addBook(@Valid @RequestBody Book book) {
+        return bookService.addBook(book);
     }
 
     @PutMapping("/book/{id}")
-    public int updateBook(@PathVariable("id") int bookId, @RequestBody Book book) {
-        bookService.updateBook(bookId, book);
-        ResponseEntity.ok().build();
-        return book.getId();
+    public Book updateBook(@PathVariable("id") Long bookId, @Valid @RequestBody Book book) throws BookNotFoundException{
+        return bookService.updateBook(bookId, book);
     }
 
     @DeleteMapping("/book/{id}")
-    public void deleteBook(@PathVariable("id") int bookId) {
+    public void deleteBook(@PathVariable("id") Long bookId) throws BookNotFoundException {
         bookService.deleteBook(bookId);
     }
 }

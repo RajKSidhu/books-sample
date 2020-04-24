@@ -57,7 +57,7 @@ public class BookServiceTest{
 
     @Test
     public void testDeleteBook(){
-        int id = 1;
+        Long id = 10000L;
         bookRepository.deleteById(id);
         Assert.assertNotNull(id);
     }

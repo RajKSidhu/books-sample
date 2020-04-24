@@ -51,13 +51,13 @@ public class BookControllerTest {
 
     @Test
     public void testUpdateBook(){
-        int bookId = 1;
+        Long bookId = 100000L;
         bookService.updateBook(bookId, book);
     }
 
     @Test
     public void testDeleteBook(){
-        int bookId = 1;
+        Long bookId = 10000L;
         bookService.deleteBook(bookId);
     }
 }
