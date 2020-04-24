@@ -45,4 +45,3 @@ HTTP Methods | Endpoint name
 **GET** | /books
 **GET** | /book/{id}
 **DELETE** | /book/{id}
-
